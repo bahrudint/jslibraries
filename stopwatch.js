@@ -30,7 +30,7 @@ window.onload = function () {
     ID++;
     var datapoint = {id:ID, time:parseFloat(seconds+"."+tens),};
     table.addData([datapoint,]);
-    console.log(table.getData());
+    table.redraw();
   }
   
   function startTimer () {
