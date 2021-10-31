@@ -29,8 +29,8 @@ window.onload = function () {
     buttonRecord.onclick = function() {
     ID++;
     var datapoint = {id:ID, time:parseFloat(seconds+"."+tens)};
-      console.log(datapoint);
     table.addData([datapoint], false);
+    table.replaceData();
   }
   
   function startTimer () {
@@ -42,7 +42,6 @@ window.onload = function () {
       appendTens.innerHTML = tens;
     } 
     if (tens > 99) {
-      console.log("seconds");
       seconds++;
       appendSeconds.innerHTML = "0" + seconds;
       tens = 0;
