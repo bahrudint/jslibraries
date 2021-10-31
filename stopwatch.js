@@ -28,8 +28,9 @@ window.onload = function () {
   }
     buttonRecord.onclick = function() {
     ID++;
-    var datapoint = {id:ID, time:parseFloat(seconds+"."+tens)};
-    table.addData([datapoint]);
+    var datapoint = {id:ID, time:parseFloat(seconds+"."+tens),};
+    table.addData([datapoint,]);
+    console.log(table.getData());
   }
   
   function startTimer () {
