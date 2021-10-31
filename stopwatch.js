@@ -1,13 +1,3 @@
-var tabledata = [
-    {id:1, time:0},
-];
-
-//initialize table
-var table = new Tabulator("#time-table", {
-    data:tabledata, 
-    autoColumns:true,
-});
-
 
 
 window.onload = function () {  
