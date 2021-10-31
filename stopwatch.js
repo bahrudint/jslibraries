@@ -1,5 +1,16 @@
-window.onload = function () {
-  
+var tabledata = [
+    {id:1, time:0},
+];
+
+//initialize table
+var table = new Tabulator("#time-table", {
+    data:tabledata, 
+    autoColumns:true,
+});
+
+
+
+window.onload = function () {  
   var seconds = 00; 
   var tens = 00; 
   var appendTens = document.getElementById("tens")
@@ -7,19 +18,17 @@ window.onload = function () {
   var buttonStart = document.getElementById('start');
   var buttonStop = document.getElementById('stop');
   var buttonReset = document.getElementById('reset');
+  var buttonRecord = document.getElementById('recordtime');
   var Interval ;
+  var ID = 1;
 
   buttonStart.onclick = function() {
-    
     clearInterval(Interval);
      Interval = setInterval(startTimer, 10);
   }
-  
     buttonStop.onclick = function() {
        clearInterval(Interval);
   }
-  
-
   buttonReset.onclick = function() {
      clearInterval(Interval);
     tens = "00";
@@ -27,21 +36,19 @@ window.onload = function () {
     appendTens.innerHTML = tens;
   	appendSeconds.innerHTML = seconds;
   }
-  
-   
+    buttonRecord.onclick = function() {
+    ID++;
+    table.addData([{id:ID, time:parseFloat(seconds+"."+tens), gender:"male"}], false);
+  }
   
   function startTimer () {
     tens++; 
-    
     if(tens <= 9){
       appendTens.innerHTML = "0" + tens;
     }
-    
     if (tens > 9){
       appendTens.innerHTML = tens;
-      
     } 
-    
     if (tens > 99) {
       console.log("seconds");
       seconds++;
@@ -49,12 +56,8 @@ window.onload = function () {
       tens = 0;
       appendTens.innerHTML = "0" + 0;
     }
-    
     if (seconds > 9){
       appendSeconds.innerHTML = seconds;
     }
-  
   }
-  
-
 }
