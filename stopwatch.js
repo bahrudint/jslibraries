@@ -10,7 +10,8 @@ window.onload = function () {
   var buttonReset = document.getElementById('reset');
   var buttonRecord = document.getElementById('recordtime');
   var Interval ;
-  var ID = 1;
+  var ID = 0;
+  var prevTime = 0;
 
   buttonStart.onclick = function() {
     clearInterval(Interval);
@@ -30,7 +31,9 @@ window.onload = function () {
   }
     buttonRecord.onclick = function() {
     ID++;
-    var datapoint = {id:ID, time:parseFloat(seconds+"."+tens),};
+    TIME = parseFloat(seconds+"."+tens);
+    var datapoint = {id:ID, time:TIME,timestep:TIME-prevTime};
+    prevTime = TIME;
     table.addData([datapoint,]);
     table.redraw();
   }
