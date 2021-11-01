@@ -31,7 +31,7 @@ window.onload = function () {
   }
     buttonRecord.onclick = function() {
     ID++;
-    TIME = parseFloat(seconds+"."+tens).toFixed(2);
+    TIME = parseFloat(appendSeconds.innerHTML+"."+appendTens.innerHTML).toFixed(2);
     timedelta = TIME-prevTime;
     prevTime = TIME;
     var datapoint = {id:ID, time:TIME,timestep:timedelta.toFixed(2)};
@@ -49,12 +49,9 @@ window.onload = function () {
     } 
     if (tens > 99) {
       seconds++;
-      appendSeconds.innerHTML = "0" + seconds;
+      appendSeconds.innerHTML = seconds;
       tens = 0;
       appendTens.innerHTML = "0" + 0;
-    }
-    if (seconds > 9){
-      appendSeconds.innerHTML = seconds;
     }
   }
 }
