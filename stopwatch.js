@@ -31,8 +31,9 @@ window.onload = function () {
   }
     buttonRecord.onclick = function() {
     ID++;
-    TIME = parseFloat(seconds+"."+tens);
-    var datapoint = {id:ID, time:TIME,timestep:TIME-prevTime};
+    TIME = parseFloat(seconds+"."+tens).toFixed(2);
+    timedelta = TIME-prevTime;
+    var datapoint = {id:ID, time:TIME,timestep:timedelta.toFixed(2)};
     prevTime = TIME;
     table.addData([datapoint,]);
     table.redraw();
