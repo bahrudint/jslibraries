@@ -33,8 +33,8 @@ window.onload = function () {
     ID++;
     TIME = parseFloat(seconds+"."+tens).toFixed(2);
     timedelta = TIME-prevTime;
-    var datapoint = {id:ID, time:TIME,timestep:timedelta.toFixed(2)};
     prevTime = TIME;
+    var datapoint = {id:ID, time:TIME,timestep:timedelta.toFixed(2)};
     table.addData([datapoint,]);
     table.redraw();
   }
