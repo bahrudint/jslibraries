@@ -26,7 +26,7 @@ window.onload = function () {
     appendTens.innerHTML = tens;
   	appendSeconds.innerHTML = seconds;
     table.replaceData();
-    var ID = 0;
+    ID = 0;
   }
     buttonRecord.onclick = function() {
     ID++;
