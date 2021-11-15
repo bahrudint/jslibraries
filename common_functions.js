@@ -20,5 +20,21 @@
         return average;}
 		
 		
-		
+
+function plot_from_table(table,CHARTID) {
+	alldata = table.getData();
+  var tableKeys = Object.keys(alldata[0]);
+	var traces = []
+  tableKeys.forEach(function(item, index) {
+  if (item != "id") {
+    var trace = {y: [],x: [],
+      mode: "markers",
+      name: item,
+      marker: {size: 12}};
+    alldata.forEach(function(itemm, indexx) {
+      if (indexx > 0) {
+        trace.x.push(itemm.id);
+        trace.y.push(itemm[item]);}});
+    	traces.push(trace);}})
+	Plotly.newPlot(CHARTID, traces, layout, config);}
 	
