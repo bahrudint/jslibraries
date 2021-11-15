@@ -25,7 +25,7 @@ function plot_from_table(alldata,CHARTID,xaxis="id") {
   var tableKeys = Object.keys(alldata[0]);
   var traces = [];
   tableKeys.forEach(function(item, index) {
-  if (item != xaxis) {
+  if ((item != xaxis) || (item != "id")) {
     var trace = {y: [],x: [],
       mode: "markers",
       name: item,
