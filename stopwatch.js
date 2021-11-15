@@ -5,10 +5,10 @@ window.onload = function () {
   var tens = 00; 
   var appendTens = document.getElementById("tens")
   var appendSeconds = document.getElementById("seconds")
-  var buttonStart = document.getElementById('start');
-  var buttonStop = document.getElementById('stop');
-  var buttonReset = document.getElementById('reset');
-  var buttonRecord = document.getElementById('recordtime');
+  var buttonStart = document.getElementById('start_sw');
+  var buttonStop = document.getElementById('stop_sw');
+  var buttonReset = document.getElementById('reset_sw');
+  var buttonRecord = document.getElementById('recordtime_sw');
   var Interval ;
   var ID = 0;
   var prevTime = 0;
