@@ -21,7 +21,8 @@
 		
 		
 
-function plot_from_table(alldata,CHARTID,xaxis="id") {
+function plot_from_table(tabledata,CHARTID,xaxis="id") {
+  var alldata = tabledata; 
   var tableKeys = Object.keys(alldata[0]);
   var traces = [];
   tableKeys.forEach(function(item, index) {
