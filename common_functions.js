@@ -23,7 +23,7 @@
 
 function plot_from_table(tabledata,CHARTID,xaxis="id") {
   var alldata = tabledata;
-  console.log(alldata);
+  layout.xaxis.title.text=xaxis;
   var tableKeys = Object.keys(alldata[0]);
   var traces = [];
   tableKeys.forEach(function(item, index) {
