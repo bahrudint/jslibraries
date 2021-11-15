@@ -21,20 +21,19 @@
 		
 		
 
-function plot_from_table(table,CHARTID) {
-	alldata = table.getData();
+function plot_from_table(alldata,CHARTID,xaxis="id") {
   var tableKeys = Object.keys(alldata[0]);
-	var traces = []
+  var traces = [];
   tableKeys.forEach(function(item, index) {
-  if (item != "id") {
+  if (item != xaxis) {
     var trace = {y: [],x: [],
       mode: "markers",
       name: item,
       marker: {size: 12}};
     alldata.forEach(function(itemm, indexx) {
       if (indexx > 0) {
-        trace.x.push(itemm.id);
+        trace.x.push(itemm[xaxis]);
         trace.y.push(itemm[item]);}});
-    	traces.push(trace);}})
-	Plotly.newPlot(CHARTID, traces, layout, config);}
+    traces.push(trace);}})
+  Plotly.newPlot(CHARTID, traces, layout, config);}
 	
