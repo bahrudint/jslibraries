@@ -25,6 +25,7 @@ client.connect({
 
 function onConnect() {
   console.log("Connected to MQTT server!");
+  sendTextToDisplay("Ready to record","Connected to:",userdata["username"],expnum);
   console.log(listento);
   client.subscribe(listento); ////// This is the topic !!!
   
