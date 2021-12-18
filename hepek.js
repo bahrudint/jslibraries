@@ -10,14 +10,8 @@ function removeData(datacontainer,chartID="Chart1") {
     Plotly.redraw(chartID);
 }
 
-
-// USERDATA
-function recieveUserdata(vars) {return vars}
-
-var myuserdata = recieveUserdata({{userdata|tojson}})
-console.log(myuserdata);
-var listento     = "Hepek_"+myuserdata["macid"];
-var postto = "RespToHepek_"+myuserdata["macid"];
+var listento     = "Hepek_"+userdata["macid"];
+var postto = "RespToHepek_"+userdata["macid"];
 
 
 // MQTT handling
