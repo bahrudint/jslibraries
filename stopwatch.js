@@ -35,8 +35,7 @@ window.onload = function () {
     timedelta = TIME-prevTime;
     prevTime = TIME;
     var datapoint = {id:ID, time:TIME,timestep:timedelta.toFixed(2)};
-    console.log(table.getData());
-    table.addData([datapoint,]);
+    table.addRow(datapoint);
     table.redraw();
   }
   
