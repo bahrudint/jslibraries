@@ -1,6 +1,6 @@
 var layout = {
 		showlegend: true,
-		legend: {x:0, y:1.05},
+		legend: {"orientation": "h"},
 		title: ' Measurement Of Values',
 		images: [{x: 1,y: 1.05,sizex: 0.22,sizey: 0.22,
 		source: "static/img/image.png",
