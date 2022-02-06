@@ -1,3 +1,12 @@
+window.onload = function () {  
+  var datacontainer = {
+    x: [],
+    y: [],
+    type: 'scatter'};
+  Plotly.newPlot('Chart1', [datacontainer], layout, config);
+}
+
+
 function addData(datacontainer, x, y, chartID = "Chart1") {
   datacontainer.x.push(x);
   datacontainer.y.push(y);
@@ -7,7 +16,8 @@ function addData(datacontainer, x, y, chartID = "Chart1") {
 function removeData(datacontainer, chartID = "Chart1") {
   datacontainer.x = [];
   datacontainer.y = [];
-  Plotly.redraw(chartID);
+  Plotly.removeTrace(chartID,0);
+  Plotly.newPlot('Chart1', [datacontainer], layout, config)
 }
 
 var listento = "Hepek_" + userdata.macid;
