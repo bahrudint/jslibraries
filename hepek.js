@@ -8,6 +8,7 @@ function removeData(datacontainer, chartID = "Chart1") {
   datacontainer.x = [];
   datacontainer.y = [];
   Plotly.redraw(chartID);
+  document.getElementById(chartID).innerHTML = "";
 }
 
 var listento = "Hepek_" + userdata.macid;
@@ -27,7 +28,7 @@ function onConnect() {
   console.log("Connected to MQTT server!");
   sendTextToDisplay("Ready to record", "Connected to:", userdata.username, expnum);
   console.log(listento);
-  document.getElementById("hepek_is_online").innerHTML = `<span class="w3-badge w3-green">&nbsp;</span>&nbsp;Hepek Online`;
+  document.getElementById("hepek_is_online").innerHTML = `<span class="w3-badge w3-green">&nbsp;</span>&nbsp;MQTT Online`;
   client.subscribe(listento); ////// This is the topic !!!
 
   //message = new Paho.MQTT.Message("Connected to topic "+postto);
@@ -73,7 +74,7 @@ function sendTextToDisplay(line1, line2 = "", line3 = "", line4 = "") {
 function onConnectionLost(responseObject) {
   if (responseObject.errorCode !== 0) {
     console.log("onConnectionLost:" + responseObject.errorMessage);
-    document.getElementById("hepek_is_online").innerHTML = `<span class="w3-badge w3-red">&nbsp;</span>&nbsp;Hepek Offline`;
+    document.getElementById("hepek_is_online").innerHTML = `<span class="w3-badge w3-red">&nbsp;</span>&nbsp;MQTT Offline`;
   }
 }
 
