@@ -8,12 +8,11 @@ function addData(datacontainer, x, y, chartID = "Chart1") {
 }
 
 function removeData(datacontainer, chartID = "Chart1") {
-  datacontainer.x = [];
-  datacontainer.y = [];
-  while(chartID.data.length>0)
-    {
-      Plotly.deleteTraces(chartID, [0]);
-    }
+    var datacontainer = {
+        x: [],
+        y: [],
+        type: 'scatter'};
+    Plotly.newPlot(chartID, [datacontainer], layout, config);
 }
 
 var listento = "Hepek_" + userdata.macid;
