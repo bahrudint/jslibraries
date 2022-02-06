@@ -8,7 +8,7 @@ var layout = {
 		yanchor: "bottom",yref: "paper"}],
 		yaxis:{fixedrange: false,   },
 		xaxis:{fixedrange: false,title:{text:"Id"}},
-		margin:{l:15,r:10}
+		margin:{l:25,r:10}
 	    };
 
 var config = {showLink: false,
