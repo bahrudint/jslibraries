@@ -14,7 +14,7 @@ var layout = {
 var config = {showLink: false,
 	      responsive: true,
 	      scrollZoom: false,
-	      staticPlot: true,
+	      staticPlot: false,
 	      displayModeBar: true,
 	      modeBarButtonsToRemove: ['sendDataToCloud',],
 	      displaylogo: false,
