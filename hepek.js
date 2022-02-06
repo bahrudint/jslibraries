@@ -71,11 +71,12 @@ function onConnectionLost(responseObject) {
 }
 
 function onMessageArrived(message) {
-  //console.log("onMessageArrived:"+message.payloadString);
+  console.log("onMessageArrived:"+message.payloadString);
   var obj = JSON.parse(message.payloadString);
-  if ("laserDistance" in obj) {addData(datacontainer,obj["millis"],obj["laserDistance"]);}
-  if ("analog" in obj)        {addData(datacontainer,obj["millis"],obj["analog"]);}
-  if ("mass" in obj)          {addData(datacontainer,obj["millis"],obj["mass"]);}
-  if ("temp" in obj)          {addData(datacontainer,obj["millis"],obj["temp"]);}
-  if ("pressTemp" in obj)     {addData(datacontainer,obj["millis"],obj["pressTemp"]);}
+  var SensorList = ["laserDistance","analog","mass"."temp","pressTemp"];
+  for (sensorname in SensorList) {
+    if (sensorname in obj):{
+      addData(datacontainer,obj["millis"],obj[sensorname]);
+    }	
+  }
 }
