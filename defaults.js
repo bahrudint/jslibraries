@@ -8,8 +8,15 @@ var layout = {
 		yanchor: "bottom",yref: "paper"}],
 		yaxis:{fixedrange: false,   },
 		xaxis:{fixedrange: false,title:{text:"Id"}},
-		margin:{l:25,r:10}
+		automargin: true,
 	    };
 
 var config = {showLink: false,
-			  responsive: true,};
+	      responsive: true,
+	      scrollZoom: false,
+	      staticPlot: true,
+	      displayModeBar: true,
+	      modeBarButtonsToRemove: ['sendDataToCloud',],
+	      displaylogo: false,
+	      
+	     };
