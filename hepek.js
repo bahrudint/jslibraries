@@ -10,7 +10,7 @@ function addData(datacontainer, x, y, chartID = "Chart1") {
 function removeData(datacontainer, chartID = "Chart1") {
   datacontainer.x = [];
   datacontainer.y = [];
-  Plotly.newPlot('Chart1', [datacontainer], layout, config)
+  Plotly.newPlot(chartID, [datacontainer], layout)
 }
 
 var listento = "Hepek_" + userdata.macid;
