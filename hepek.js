@@ -80,12 +80,10 @@ function onConnectionLost(responseObject) {
 function onMessageArrived(message) {
   //console.log("onMessageArrived:" + message.payloadString);
   var obj = JSON.parse(message.payloadString);
-  var SensorList = ["laserDistance", "analog", "mass", "temp", "pressTemp"];
-  console.log("Data: " + obj["mass"]);
-  for (let sensorname in SensorList) {
-    console.log(sensorname);
+  SensorList = ["laserDistance", "analog", "mass", "temp", "pressTemp"];
+  SensorList.forEach(function(sensorname,indexx){
     if (sensorname in obj) {
       addData(datacontainer, obj["millis"], obj.sensorname);
     }
-  }
+  });
 }
