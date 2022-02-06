@@ -8,6 +8,7 @@ function removeData(datacontainer, chartID = "Chart1") {
   datacontainer.x = [];
   datacontainer.y = [];
   Plotly.update(chartID,[datacontainer]);
+  Plotly.restyle(chartID, {}, 0)
 }
 
 var listento = "Hepek_" + userdata.macid;
