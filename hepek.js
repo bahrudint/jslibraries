@@ -7,7 +7,7 @@ function addData(datacontainer, x, y, chartID = "Chart1") {
 function removeData(datacontainer, chartID = "Chart1") {
   datacontainer.x = [];
   datacontainer.y = [];
-  Plotly.restyle(chartID);
+  Plotly.deleteTraces(chartID,0);
 }
 
 var listento = "Hepek_" + userdata.macid;
