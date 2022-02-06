@@ -1,14 +1,13 @@
 function addData(datacontainer, x, y, chartID = "Chart1") {
   datacontainer.x.push(x);
   datacontainer.y.push(y);
-  Plotly.redraw(chartID);
+  Plotly.extendTraces(chartID,{y:y,x:x});
 }
 
 function removeData(datacontainer, chartID = "Chart1") {
   datacontainer.x = [];
   datacontainer.y = [];
-  Plotly.redraw(chartID);
-  Plotly.deleteTraces(chartID, 0);
+  Plotly.restyle(chartID);
 }
 
 var listento = "Hepek_" + userdata.macid;
