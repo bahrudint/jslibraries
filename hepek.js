@@ -8,7 +8,7 @@ function removeData(datacontainer, chartID = "Chart1") {
   datacontainer.x = [];
   datacontainer.y = [];
   Plotly.redraw(chartID);
-  document.getElementById(chartID).innerHTML = "";
+  Plotly.deleteTraces(chartID, 0);
 }
 
 var listento = "Hepek_" + userdata.macid;
