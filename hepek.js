@@ -1,10 +1,4 @@
-window.onload = function () {  
-  var datacontainer = {
-  x: [],
-  y: [],
-  type: 'scatter'};
-Plotly.newPlot('Chart1', [datacontainer], layout, config);
-}
+
 
 
 function addData(datacontainer, x, y, chartID = "Chart1") {
