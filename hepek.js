@@ -1,13 +1,13 @@
 
 
 
-function addData(datacontainer, x, y, chartID = "Chart1") {
+function addData(datacontainer, x, y, chartID=chartid) {
   datacontainer.x.push(x);
   datacontainer.y.push(y);
   Plotly.extendTraces(chartID,{y:[[y]],x:[[x]] },[0]);
 }
 
-function removeData(datacontainer, chartID = "Chart1") {
+function removeData(datacontainer, chartID=chartid) {
     var datacontainer = {
         x: [],
         y: [],
