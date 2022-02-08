@@ -1,4 +1,11 @@
-
+function initPlot(ChartID="Chart1",typeofplot='scatter'){
+    var chartid = ChartID;
+    var datacontainer = {
+      x: [],
+      y: [],
+      type: typeofplot};
+    Plotly.newPlot(ChartID, [datacontainer], layout, config);
+}
 
 
 function addData(datacontainer, x, y, chartID=chartid) {
