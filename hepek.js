@@ -1,31 +1,5 @@
-function initPlot(ChartID="Chart1",typeofplot='scatter'){
-    var chartid = ChartID;
-    var datacontainer = {
-      x: [],
-      y: [],
-      type: typeofplot};
-    Plotly.newPlot(ChartID, [datacontainer], layout, config);
-}
-
-
-function addData(datacontainer, x, y, chartID=chartid) {
-  datacontainer.x.push(x);
-  datacontainer.y.push(y);
-  Plotly.extendTraces(chartID,{y:[[y]],x:[[x]] },[0]);
-}
-
-function removeData(datacontainer, chartID=chartid) {
-    var datacontainer = {
-        x: [],
-        y: [],
-        type: 'scatter'};
-    Plotly.newPlot(chartID, [datacontainer], layout, config);
-}
-
 var listento = "Hepek_" + userdata.macid;
 var postto = "RespToHepek_" + userdata.macid;
-
-
 // MQTT handling
 client = new Paho.MQTT.Client("broker.emqx.io", Number(8084), "/mqtt", "clientId");
 client.onConnectionLost = onConnectionLost;
@@ -41,7 +15,6 @@ function onConnect() {
   console.log(listento);
   document.getElementById("hepek_is_online").innerHTML = `<span class="w3-badge w3-green">&nbsp;</span>&nbsp;MQTT Online`;
   client.subscribe(listento); ////// This is the topic !!!
-
   //message = new Paho.MQTT.Message("Connected to topic "+postto);
   // message.destinationName = postto;
   //client.send(message); 
@@ -98,4 +71,15 @@ function onMessageArrived(message) {
       addData(datacontainer, obj["millis"], obj[sensorname]);
     }
   });
+}
+
+function addData(datacontainer, x, y, chartID=chartid) {
+  datacontainer.x.push(x);
+  datacontainer.y.push(y);
+  Plotly.extendTraces(chartID,{y:[[y]],x:[[x]] },[0]);
+}
+
+function removeData(datacontainer, chartID=chartid) {
+    datacontainer = {x: [],y: [],type: 'scatter'};
+    Plotly.newPlot(chartID, [datacontainer], layout, config);
 }
