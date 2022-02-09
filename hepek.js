@@ -74,8 +74,8 @@ function onMessageArrived(message) {
 }
 
 function addData(datacontainer, x, y, chartID=chartid) {
-//   datacontainer.x.push(x);
-//   datacontainer.y.push(y);
+  datacontainer.x.push(x);
+  datacontainer.y.push(y);
   Plotly.extendTraces(chartID,{y:[[y]],x:[[x]] },[0]);
 }
 
