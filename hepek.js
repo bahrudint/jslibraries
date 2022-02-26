@@ -1,3 +1,4 @@
+var dataTarget=
 
 function addData(datacontainer, x, y, chartID = "Chart1") {
   datacontainer.x.push(x);
@@ -86,7 +87,7 @@ function onMessageArrived(message) {
   SensorList = ["laserDistance", "analog", "mass", "temp", "pressTemp"];
   SensorList.forEach(function(sensorname,indexx){
     if (sensorname in obj) {
-      addData(datacontainer, obj["millis"], obj[sensorname]);
+      addData(datacontainer, obj["millis"], obj[sensorname], dataTarget);
     }
   });
 }
