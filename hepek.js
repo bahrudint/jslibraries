@@ -38,7 +38,7 @@ function onConnect() {
   //client.send(message); 
 }
 
-function getEspData(sensor, interval = 300, start = "1", rapidNum = "1") {
+function getEspData(sensor, interval = 300, start = "1", rapidNum = "0") {
   /**
    * sensors: analog, laserDistance,rapidAnalog,pressTemp
    * interval -> in miliseconds
