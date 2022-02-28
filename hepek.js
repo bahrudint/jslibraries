@@ -85,7 +85,7 @@ function onMessageArrived(message) {
   SensorList = ["laserDistance", "analog", "mass", "temp", "pressTemp"];
   SensorList.forEach(function(sensorname,indexx){
     if (sensorname in obj) {
-      addData(datacontainer, obj["millis"], obj[sensorname], dataTarget);
+      addData(datacontainer, obj["millis"], obj[sensorname]);
     }
   });
 }
