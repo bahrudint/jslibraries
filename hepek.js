@@ -1,5 +1,3 @@
-var dataTarget=
-
 function addData(datacontainer, x, y, chartID = "Chart1") {
   datacontainer.x.push(x);
   datacontainer.y.push(y);
