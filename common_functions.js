@@ -38,4 +38,14 @@ function plot_from_table(tabledata,CHARTID,xaxis="id") {
         trace.y.push(itemm[item]);}});
     traces.push(trace);}})
   Plotly.newPlot(CHARTID, traces, layout, config);}
-	
+
+function createSingleMeasurementField(fieldID,buttonID,addDataID,measurementName="Measurement"){
+	var buttonHTML = `<div class="w3-container w3-center">
+	<div class="w3-card-4 w3-center" style="width:70%; margin: auto;">
+		<div class="w3-container">
+			<p><h3>${measurementName}</h3></p>
+		<h2><span id="${addDataID}"><b>_____</b></span></h2><br></div>
+	 <button id="${buttonID}" class="w3-button w3-block w3-red w3-big">Take Measurement</button>
+	</div></div>`;
+document.getElementById(fieldID).innerHTML = buttonHTML;
+};
