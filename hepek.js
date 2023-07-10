@@ -89,3 +89,5 @@ function onMessageArrived(message) {
     }
   });
 }
+
+function confirmMessageRecieved( ){}
