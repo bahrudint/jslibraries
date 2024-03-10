@@ -21,23 +21,39 @@
 		
 		
 
-function plot_from_table(tabledata,CHARTID,xaxis="id") {
+function plot_from_table(tabledata, CHARTID, xaxis="id", la="", co="") {
   var alldata = tabledata;
-  layout.xaxis.title.text=xaxis;
+  var layoutToUse = la === "" ? window.layout : la; 
+  var configToUse = co === "" ? window.config : co; 
+  
+  // Ensure the x-axis title is updated according to the xaxis parameter
+  layoutToUse.xaxis = {title: {text: xaxis}};
+  
   var tableKeys = Object.keys(alldata[0]);
   var traces = [];
-  tableKeys.forEach(function(item, index) {
-  if ((item != xaxis) && (item != "id")) {
-    var trace = {y: [],x: [],
-      mode: "markers",
-      name: item,
-      marker: {size: 12}};
-    alldata.forEach(function(itemm, indexx) {
-      if (indexx > 0) {
-        trace.x.push(itemm[xaxis]);
-        trace.y.push(itemm[item]);}});
-    traces.push(trace);}})
-  Plotly.newPlot(CHARTID, traces, layout, config);}
+
+  tableKeys.forEach(function(item) {
+    if ((item !== xaxis) && (item !== "id")) {
+      var trace = {
+        y: [],
+        x: [],
+        mode: "markers",
+        name: item,
+        marker: {size: 12}
+      };
+      alldata.forEach(function(itemm) {
+        if (itemm[xaxis] !== undefined && itemm[item] !== undefined) {
+          trace.x.push(itemm[xaxis]);
+          trace.y.push(itemm[item]);
+        }
+      });
+      traces.push(trace);
+    }
+  });
+  
+  Plotly.newPlot(CHARTID, traces, layoutToUse, configToUse);
+}
+
 
 function createSingleMeasurementField(fieldID,buttonID,addDataID,measurementName="Measurement"){
 	var buttonHTML = `<div class="w3-container w3-center">
